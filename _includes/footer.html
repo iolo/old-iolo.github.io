@@ -1,0 +1,31 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="copyright">
+          &copy 2018 <a class="plain" href="//iolo.kr">IoloTheBard</a>
+        </div>
+        <div class="site-links">
+            {% if site.github_username %}
+            <a href="//github.com/{{ site.github_username }}">
+              <i class="plain fab fa-github"></i></a>
+            {% endif %}
+            {% if site.facebook_username %}
+            <a href="//facebook.com/{{ site.facebook_username }}">
+              <i class="plain fab fa-facebook"></i></a>
+            {% endif %}
+            {% if site.twitter_username %}
+            <a href="//twitter.com/{{ site.twitter_username }}">
+              <i class="plain fab fa-twitter"></i></a>
+            {% endif %}
+            {% if site.linkedin_username %}
+            <a href="//linkedin.com/in/{{ site.linkedin_username }}">
+              <i class="plain fab fa-linkedin"></i></a>
+            {% endif %}
+            <a href="{{ site.baseurl }}/feed">
+              <i class="plain fa fa-rss"></i></a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</footer>
+{% include google_analytics.html %}
+<script src="{{ site.baseurl }}/assets/js/index.min.js"></script>
+

@@ -1,0 +1,12 @@
+<header class="site-header">
+    <div class="container">
+        <h1 class="site-title"><i></i><a href="{{ site.url }}">{{ site.title }}</a></h1>
+        <nav class="site-nav">
+            {% assign current = page.url | downcase | split: '/' %}
+            <a href="{{ site.baseurl }}/about/" {% if current[1]=='about' %}class="active"{% endif %}>about</a>
+            <a href="{{ site.baseurl }}/posts/" {% if current[1]=='posts' %}class="active"{% endif %}>posts</a>
+            <a href="{{ site.baseurl }}/tags/" {% if current[1]=='tags' %}class="active"{% endif %}>tags</a>
+        </nav>
+    </div>
+    <div class="clearfix"></div>
+</header>

@@ -1,0 +1,17 @@
+<!-- slideshare begin -->
+<div id="slideshare-embed-{{ include.url }}"></div>
+<script async>
+(function(w, d) {
+// see https://www.slideshare.net/developers/oembed
+var s = d.createElement('script'), cb = 'slideshare_callback_'+Date.now()+'_'+Math.random().toString(36).substring(2);
+w[cb] = function(res) {
+  d.getElementById('slideshare-embed-{{ include.url }}').innerHTML = res.html;
+  delete w[cb]
+};
+s.async = true;
+s.defer = true;
+s.src = '//www.slideshare.net/api/oembed/2?url={{ include.url }}&format=jsonp&callback=' + cb;
+(d.head || d.body).appendChild(s);
+})(window, document);
+</script>
+<!-- slideshare end -->

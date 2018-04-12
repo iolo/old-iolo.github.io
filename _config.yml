@@ -1,0 +1,55 @@
+title: "Quest of Iolo the Bard"
+email: iolothebard@gmail.com
+description: "제주살았던/마이너지향/입코딩전문/초보아빠/프로그래머"
+url: "https://iolo.github.io"
+baseurl: ""
+cover: "/assets/img/cover.png"
+timezone: Asia/Seoul
+date_format: "%Y-%m-%d"
+
+repository: iolo/iolo.github.io
+
+permalink: /posts/:year/:month/:day/:title
+
+excerpt_separator: <!--more-->
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  highlighter: rouge
+
+plugins:
+  - jekyll-paginate
+  - jemoji
+
+paginate: 5
+paginate_path: "/pages/:num/"
+
+exclude:
+  - README.md
+  - LICENSE.txt
+keep_files:
+  - assets
+  - files
+asset_url: /assets
+
+collections:
+  tags:
+    output: true
+    permalink: /tags/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: tags
+    values:
+      layout: tag
+
+google_analytics_ua: UA-34990483-7
+google_site_verification: NBkAad_-iHpUeuK_UbO0xxSTDxO4S0_zaMASLWXTvWI
+github_username: iolo
+twitter_username: iolothebard
+facebook_username: iolothebard
+linkedin_username: iolothebard
+disqus_shortname: iolo-github-io
