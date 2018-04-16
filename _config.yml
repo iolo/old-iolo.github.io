@@ -1,7 +1,8 @@
 title: "Quest of Iolo the Bard"
 email: iolothebard@gmail.com
 description: "제주살았던/마이너지향/입코딩전문/초보아빠/프로그래머"
-url: "https://iolo.github.io"
+url: "https://blog.iolo.kr"
+enforce_ssl: "blog.iolo.kr"
 baseurl: ""
 cover: "/assets/img/cover.png"
 timezone: Asia/Seoul
