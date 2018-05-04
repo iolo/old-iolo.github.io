@@ -3,6 +3,10 @@ title: "깃헙 페이지 커스텀 도메인을 Let's Encrypt 인증서로 서�
 date: '2018-04-16'
 ---
 
+> 2018년 5월 1일부터 커스텀 도메인을 사용하는 깃헙페이지에서도 https를 사용할 수 있다.
+>
+> 참고: [Custom domains on GitHub Pages gain support for HTTPS](https://blog.github.com/2018-05-01-github-pages-custom-domains-https/)
+
 이 블로그는 [GitHub Pages](https://pages.github.com/)를 통해 서비스되고 있다 .
 별다른 설정 없이 <http://iolo.github.io> 또는 <https://iolo.github.io> 로 접속할 수 있으며,
 [https를 강제](https://help.github.com/articles/securing-your-github-pages-site-with-https/)할 수도 있다.
@@ -24,7 +28,14 @@ certbot 0.22.2
 #
 ```
 
+
 ### 인증서 발급 & nginx 설정 업데이트
+
+certbot으로 와일드카드 인증서를 받으려면 `--manual` 옵션을 사용해야 한다.
+아직은 자동으로 nginx 설정을 업데이트 해주는 `--nginx` 옵션을 함께 사용할 수 없다.
+
+certbot의 nginx 플러그인이 어떤 설정을 만들어주는지 알고 싶어서 한번 해봤는데...
+별거 없다. 바로 와일드카드 인증서를 받고, 수동으로 nginx 설정을 업데이트해도 된다.
 
 ```
 # certbot --nginx -d iolo.kr -d www.iolo.kr
@@ -127,11 +138,11 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 ### 1차 결과 확인
 
-* http://iolo.kr --> https://iolo.kr 로 리디렉트(301)
-* https://iolo.kr
-* http://www.iolo.kr --> https://iolo.kr 로 리디렉트(301)
-* https://www.iolo.kr
-* https://www.ssllabs.com/ssltest/analyze.html?d=iolo.kr
+* <https://iolo.kr>
+* <http://iolo.kr> --> <https://iolo.kr> 로 리디렉트(301)
+* <https://www.iolo.kr>
+* <http://www.iolo.kr> --> <https://iolo.kr> 로 리디렉트(301)
+* <https://www.ssllabs.com/ssltest/analyze.html?d=iolo.kr>
 
 
 ### 와일드카드 인증서 발급
@@ -216,19 +227,11 @@ IMPORTANT NOTES:
 
 ### 2차 결과 확인 
 
-* <http://blog.iolo.kr> :smiley:
-* <https://blog.iolo.kr> :smiley:
-* <http://iolo.github.io> -> http://blog.iolo.kr 로 리디렉트(301) :disappointed:
-* <https://iolo.github.io> -> http://blog.iolo.kr 로 리디렉트(301) :disappointed:
+* <https://blog.iolo.kr>
+* <http://blog.iolo.kr> -> <https://blog.iolo.kr> 로 리디렉트(301)
+* <http://iolo.github.io> -> <https://blog.iolo.kr> 로 리디렉트(301)
+* <https://iolo.github.io> -> <https://blog.iolo.kr> 로 리디렉트(301)
 * <https://www.ssllabs.com/ssltest/analyze.html?d=blog.iolo.kr>
-
-### 남은 삽질 거리
-
-지금은 <https://iolo.github.io> 나 <http://iolo.github.io> 로 접속하면
-<https://blog.iolo.kr> 이 아니라 <http://blog.iolo.kr> 로 리디렉트된다.
-그런데 나는 **https만** 서비스하고 싶다. 별다른 이유는 없다. 그냥 뽀대!
-
-이 문제만 해결되면 [Let's Encrypt](https://letsencrypt.org/)에 조금이라도 기부해야겠다.
 
 ### 참고자료
 
