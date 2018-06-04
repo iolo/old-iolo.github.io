@@ -1,6 +1,7 @@
 ---
-title: GitHub Pages / Jekyll 에 페이스북 댓글 달기
+title: "GitHub Pages + Jekyll에 페이스북 댓글 달기"
 date: 2018-06-01
+tags: [githubpages, jekyll, facebookcomments]
 ---
 
 ### 1. [페이스북 개발자 페이지](https://developers.facebook.com/)에서 앱 등록 

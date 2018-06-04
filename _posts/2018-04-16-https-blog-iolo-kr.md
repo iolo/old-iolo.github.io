@@ -1,6 +1,7 @@
 ---
 title: "깃헙 페이지 커스텀 도메인을 Let's Encrypt 인증서로 서비스하기"
-date: '2018-04-16'
+date: 2018-04-16
+tags: [githubpages, https, letsencrypt, devops]
 ---
 
 > 2018년 5월 1일부터 커스텀 도메인을 사용하는 깃헙페이지에서도 https를 사용할 수 있다.
