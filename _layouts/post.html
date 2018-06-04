@@ -12,6 +12,28 @@ layout: default
     <footer class="post-footer">
         {% include post_tags.html tags=page.tags %}
         {% include share_buttons.html %}
+        <nav class="post-rel-nav">
+          <div class="post-rel-prev">
+            {% if page.previous.url %}
+            <a href="{{ page.previous.url }}">
+              <i class="fa fa-chevron-circle-left"><span class="sr-only">previous post</span></i>
+              {{ page.previous.title }}
+            </a>
+            {% else %}
+            <span>BOF</span>
+            {% endif %}
+          </div>
+          <div class="post-rel-next">
+            {% if page.next.url %}
+            <a href="{{ page.next.url }}">
+              {{ page.next.title }}
+              <i class="fa fa-chevron-circle-right"><span class="sr-only">next post</span></i>
+            </a>
+            {% else %}
+            <span>EOF</span>
+            {% endif %}
+          </div>
+        </nav>
         {% include comments.html %}
     </footer>
 </div>

@@ -231,6 +231,21 @@
   }
 }
 
+.post-rel-nav {
+    margin: 2em 0;
+    display: flex;
+    flex-flow: row wrap;
+    .post-rel-prev, .post-rel-next {
+        flex: 1 1 auto;
+    }
+    .post-rel-prev {
+        text-align: left;
+    }
+    .post-rel-next {
+        text-align: right;
+    }
+}
+
 .forkme {
   position: absolute;
   top: 0;
